@@ -1,0 +1,113 @@
+:root {
+    --navy: #0b2a5b;
+    --navy-dark: #081f44;
+    --navy-light: #1d4ea0;
+    --gray-bg: #f1f3f7;
+    --gray-line: #dfe3ea;
+    --sidebar-w: 250px;
+}
+body { background: var(--gray-bg); color: #1f2937; font-size: .93rem; }
+a { color: var(--navy-light); }
+.btn-primary { --bs-btn-bg: var(--navy); --bs-btn-border-color: var(--navy); --bs-btn-hover-bg: var(--navy-light); --bs-btn-hover-border-color: var(--navy-light); --bs-btn-active-bg: var(--navy-dark); --bs-btn-active-border-color: var(--navy-dark); --bs-btn-disabled-bg: var(--navy); --bs-btn-disabled-border-color: var(--navy); }
+.btn-outline-primary { --bs-btn-color: var(--navy); --bs-btn-border-color: var(--navy); --bs-btn-hover-bg: var(--navy); --bs-btn-hover-border-color: var(--navy); --bs-btn-active-bg: var(--navy); }
+.text-bg-primary { background-color: var(--navy-light) !important; }
+.page-item.active .page-link { background: var(--navy); border-color: var(--navy); }
+.page-link { color: var(--navy); }
+.form-control:focus, .form-select:focus { border-color: var(--navy-light); box-shadow: 0 0 0 .2rem rgba(29, 78, 160, .15); }
+
+/* Layout */
+.app-sidebar {
+    position: fixed; inset: 0 auto 0 0; width: var(--sidebar-w); background: var(--navy);
+    color: #cfd8ea; display: flex; flex-direction: column; z-index: 1040; transition: transform .2s ease;
+}
+.app-sidebar .brand { display: flex; align-items: center; gap: .75rem; padding: 1.1rem 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, .1); color: #fff; }
+.app-sidebar .brand i { font-size: 1.9rem; }
+.brand-name { font-weight: 700; letter-spacing: .5px; line-height: 1.1; }
+.brand-sub { font-size: .7rem; color: #a9b8d6; }
+.app-sidebar .nav { padding: .75rem .6rem; gap: 2px; flex: 1; overflow-y: auto; }
+.app-sidebar .nav-link { color: #cfd8ea; display: flex; align-items: center; gap: .75rem; padding: .6rem .85rem; border-radius: .5rem; }
+.app-sidebar .nav-link i { font-size: 1.05rem; width: 1.25rem; text-align: center; }
+.app-sidebar .nav-link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.app-sidebar .nav-link.active { background: #fff; color: var(--navy); font-weight: 600; }
+.sidebar-foot { padding: .9rem 1.25rem; font-size: .7rem; color: #8ea2c8; border-top: 1px solid rgba(255, 255, 255, .1); }
+.sidebar-backdrop { display: none; }
+.app-main { margin-left: var(--sidebar-w); min-height: 100vh; display: flex; flex-direction: column; }
+.app-topbar {
+    position: sticky; top: 0; z-index: 1030; background: #fff; border-bottom: 1px solid var(--gray-line);
+    padding: .55rem 1.25rem; display: flex; align-items: center; gap: .75rem;
+}
+.topbar-search { width: 340px; max-width: 100%; }
+.app-content { padding: 1.25rem; flex: 1; }
+.page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; gap: .5rem; flex-wrap: wrap; }
+.app-footer { padding: .8rem 1.25rem; font-size: .78rem; color: #6b7280; text-align: center; }
+
+@media (max-width: 991.98px) {
+    .app-sidebar { transform: translateX(-100%); }
+    .app-sidebar.open { transform: none; box-shadow: 0 0 30px rgba(0, 0, 0, .3); }
+    .sidebar-backdrop.show { display: block; position: fixed; inset: 0; background: rgba(0, 0, 0, .4); z-index: 1035; }
+    .app-main { margin-left: 0; }
+    .topbar-search { flex: 1; width: auto; }
+    .app-content { padding: .9rem; }
+}
+
+/* Kartu & tabel */
+.card { border: 1px solid var(--gray-line); border-radius: .75rem; box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+.card-header { background: #fff; font-weight: 600; border-bottom: 1px solid var(--gray-line); }
+.table > :not(caption) > * > * { padding: .6rem .7rem; vertical-align: middle; }
+.table thead th { background: #f7f8fb; color: #475467; font-size: .76rem; text-transform: uppercase; letter-spacing: .4px; white-space: nowrap; border-bottom: 1px solid var(--gray-line); }
+.table-actions { white-space: nowrap; }
+.table-actions form { display: inline; }
+.thumb { width: 42px; height: 42px; object-fit: cover; border-radius: .4rem; border: 1px solid var(--gray-line); background: #f3f4f6; }
+.thumb-lg { width: 100%; max-height: 260px; object-fit: contain; border-radius: .5rem; background: #f3f4f6; border: 1px solid var(--gray-line); }
+.thumb-ph { display: inline-flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 1.2rem; }
+
+/* Kartu ringkasan dashboard */
+.stat-card { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.1rem; height: 100%; }
+.stat-icon { width: 46px; height: 46px; border-radius: .7rem; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0; }
+.stat-value { font-size: 1.55rem; font-weight: 700; line-height: 1.1; color: var(--navy); }
+.stat-label { font-size: .78rem; color: #6b7280; }
+.bg-soft-navy { background: #e3ebf9; color: var(--navy); }
+.bg-soft-green { background: #dcf5e6; color: #15803d; }
+.bg-soft-amber { background: #fdf0d2; color: #b45309; }
+.bg-soft-red { background: #fde2e2; color: #b91c1c; }
+.bg-soft-blue { background: #dbeafe; color: #1d4ed8; }
+.bg-soft-gray { background: #e5e7eb; color: #374151; }
+.chart-box { position: relative; height: 270px; }
+.list-compact .list-group-item { padding: .6rem .9rem; }
+
+.detail-grid dt { font-weight: 500; color: #6b7280; }
+.detail-grid dd { margin-bottom: .6rem; }
+.stock-box { text-align: center; padding: .7rem .4rem; border-radius: .6rem; background: #f7f8fb; border: 1px solid var(--gray-line); }
+.stock-box .n { font-size: 1.4rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+.stock-box .l { font-size: .72rem; color: #6b7280; }
+.required::after { content: ' *'; color: #dc3545; }
+
+/* Login */
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; background: linear-gradient(135deg, var(--navy-dark), var(--navy-light)); }
+.login-card { width: 100%; max-width: 410px; border-radius: 1rem; border: 0; }
+.login-logo { width: 64px; height: 64px; border-radius: 1rem; background: var(--navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; }
+
+/* Laporan */
+.report-header { text-align: center; margin-bottom: 1rem; }
+.report-header h2 { font-size: 1.15rem; margin: 0; font-weight: 700; text-transform: uppercase; }
+.report-header .sub { font-size: .9rem; }
+.report-meta { font-size: .85rem; margin-bottom: .75rem; }
+.report-table th, .report-table td { font-size: .85rem; }
+.report-table tfoot td { font-weight: 700; background: #f7f8fb; }
+
+@media print {
+    @page { size: A4 landscape; margin: 12mm; }
+    body { background: #fff; font-size: 11pt; }
+    .app-sidebar, .app-topbar, .app-footer, .no-print, .sidebar-backdrop { display: none !important; }
+    .app-main { margin: 0; }
+    .app-content { padding: 0; }
+    .card { border: 0; box-shadow: none; }
+    .card-body { padding: 0; }
+    .table-responsive { overflow: visible !important; }
+    .report-table th, .report-table td { border: 1px solid #444 !important; padding: 3px 6px !important; font-size: 9.5pt; }
+    .report-table thead th { background: #e5e7eb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .badge { border: 1px solid #666; color: #000 !important; background: #fff !important; }
+    .report-sign { page-break-inside: avoid; }
+}
+.print-only { display: none; }
+@media print { .print-only { display: block; } }
